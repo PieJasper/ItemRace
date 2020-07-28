@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -20,6 +21,9 @@ public class GameManager {
     private final List<Player> joinedPlayers = new ArrayList<>();
     private final List<Player> activePlayers = new ArrayList<>();
     private final List<Player> completedPlayers = new ArrayList<>();
+
+    private final List<Player> configuringPlayers = new ArrayList<>();
+    private final HashMap<Player, Material> materialsForPlayers = new HashMap<>();
 
     private final HashMap<Player, Material> playerItems = new HashMap<>();
 
@@ -64,6 +68,38 @@ public class GameManager {
         }.runTaskTimer(plugin, 0, 20);
 
         this.settings = settings;
+    }
+
+    public void startConfiguring(Player player) {
+        if (configuringPlayers.contains(player)) {
+            player.sendMessage(ChatColor.GREEN + "You are no longer configuring.");
+            configuringPlayers.remove(player);
+        } else {
+            player.sendMessage(ChatColor.GREEN + "You are now configuring.");
+            configuringPlayers.add(player);
+            Material material = materialManager.getUncategorizedItem();
+            materialsForPlayers.put(player, material);
+            player.sendMessage(ChatColor.GOLD + "New item: " + cleanName(material));
+        }
+    }
+
+    public List<String> getCategoryNames() {
+        return materialManager.getCategoryNames();
+    }
+
+    public ConfigurationSection getCategory(String category) {
+        return materialManager.getCategory(category);
+    }
+
+    public void addOrChangeCategory(String category, int difficulty, Player player) {
+        if (configuringPlayers.contains(player)) {
+            materialManager.addOrChangeCategory(category, difficulty, materialsForPlayers.get(player));
+            Material material = materialManager.getUncategorizedItem();
+            materialsForPlayers.put(player, material);
+            player.sendMessage(ChatColor.GOLD + "New item: " + cleanName(material));
+        } else {
+            materialManager.addOrChangeCategory(category, difficulty, null);
+        }
     }
 
     public void addPlayer(Player player) {

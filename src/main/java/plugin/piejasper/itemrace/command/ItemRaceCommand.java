@@ -57,6 +57,9 @@ public class ItemRaceCommand implements CommandExecutor, TabCompleter {
             case "set":
                 set(strings, commandSender);
                 break;
+            case "conf":
+                conf(strings, commandSender);
+                break;
             default:
                 return false;
         }
@@ -264,6 +267,39 @@ public class ItemRaceCommand implements CommandExecutor, TabCompleter {
         }
     }
 
+    private void conf(String[] args, CommandSender sender) {
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(ChatColor.RED + "You must be a player to use config commands.");
+            return;
+        }
+
+        if (args.length >= 2) {
+            if (args[1].equalsIgnoreCase("list")) {
+                StringBuilder listBuilder = new StringBuilder(ChatColor.GOLD + "Current Categories:\n");
+                for (String category : gameManager.getCategoryNames()) {
+                    listBuilder
+                            .append(category)
+                            .append(" (")
+                            .append(gameManager.getCategory(category).getInt("difficulty"))
+                            .append("), ");
+                }
+                sender.sendMessage(listBuilder.toString());
+                return;
+            } else {
+                String categoryName = args[1].toLowerCase();
+                int difficulty = -1;
+                if (args.length > 2) {
+                    difficulty = Integer.parseInt(args[2]);
+                }
+                sender.sendMessage(ChatColor.GREEN + "Successfully added category.");
+                gameManager.addOrChangeCategory(categoryName, difficulty, (Player) sender);
+                return;
+            }
+        } else {
+            gameManager.startConfiguring((Player) sender);
+        }
+    }
+
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> commandCompletions = new ArrayList<>(Arrays.asList(
@@ -274,7 +310,8 @@ public class ItemRaceCommand implements CommandExecutor, TabCompleter {
                 "stop",
                 "leave",
                 "help",
-                "set"
+                "set",
+                "conf"
         ));
 
         List<String> possibleCompletions = new ArrayList<>();
@@ -288,6 +325,10 @@ public class ItemRaceCommand implements CommandExecutor, TabCompleter {
                 } else {
                     possibleCompletions = settings.getPossibleSettings();
                 }
+            } else if (args[0].equalsIgnoreCase("conf")) {
+                if (args.length == 2) {
+                    possibleCompletions = gameManager.getCategoryNames();
+                }
             }
         } else {
             possibleCompletions = commandCompletions;
@@ -296,7 +337,7 @@ public class ItemRaceCommand implements CommandExecutor, TabCompleter {
         String relevantArg = args[args.length - 1];
         List<String> usableCompletions = new ArrayList<>();
         for (String completion : possibleCompletions) {
-            if (completion.toLowerCase().startsWith(relevantArg)) {
+            if (completion.toLowerCase().startsWith(relevantArg.toLowerCase())) {
                 usableCompletions.add(completion);
             }
         }

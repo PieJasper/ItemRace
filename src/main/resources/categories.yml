@@ -1,7 +1,476 @@
 unobtainable:
   difficulty: 9999
   items:
-    - COMMAND_BLOCK
-    - COMMAND_BLOCK_MINECART
-    - REPEATING_COMMAND_BLOCK
-    - CHORUS_PLANT
+  - COMMAND_BLOCK
+  - COMMAND_BLOCK_MINECART
+  - REPEATING_COMMAND_BLOCK
+  - CHORUS_PLANT
+  - SLIME_SPAWN_EGG
+  - ZOMBIE_SPAWN_EGG
+  - ELDER_GUARDIAN_SPAWN_EGG
+  - TROPICAL_FISH_SPAWN_EGG
+  - DONKEY_SPAWN_EGG
+  - BEE_SPAWN_EGG
+  - INFESTED_MOSSY_STONE_BRICKS
+  - VEX_SPAWN_EGG
+  - SKELETON_HORSE_SPAWN_EGG
+  - SKELETON_SPAWN_EGG
+  - SALMON_SPAWN_EGG
+  - HORSE_SPAWN_EGG
+  - INFESTED_CHISELED_STONE_BRICKS
+  - ZOMBIE_HORSE_SPAWN_EGG
+  - COD_SPAWN_EGG
+  - INFESTED_CRACKED_STONE_BRICKS
+  - PIG_SPAWN_EGG
+  - ZOMBIE_VILLAGER_SPAWN_EGG
+  - EVOKER_SPAWN_EGG
+  - SILVERFISH_SPAWN_EGG
+  - BEDROCK
+  - PILLAGER_SPAWN_EGG
+  - CHICKEN_SPAWN_EGG
+  - SHULKER_SPAWN_EGG
+  - CAVE_SPIDER_SPAWN_EGG
+  - STRIDER_SPAWN_EGG
+  - PIGLIN_SPAWN_EGG
+  - ZOMBIFIED_PIGLIN_SPAWN_EGG
+  - WITCH_SPAWN_EGG
+nether-easy:
+  difficulty: 2
+  items:
+  - CHISELED_NETHER_BRICKS
+  - WARPED_FENCE_GATE
+  - POLISHED_BLACKSTONE_BUTTON
+  - BLACKSTONE
+  - SOUL_SOIL
+  - QUARTZ_BRICKS
+  - SOUL_TORCH
+  - WARPED_HYPHAE
+  - WARPED_FENCE
+  - WARPED_TRAPDOOR
+  - WARPED_FUNGUS
+  - NETHERRACK
+  - QUARTZ_STAIRS
+  - QUARTZ_BLOCK
+  - CRIMSON_STAIRS
+  - POLISHED_BLACKSTONE_STAIRS
+  - CRIMSON_FENCE
+  - CRIMSON_ROOTS
+  - CRIMSON_SLAB
+  - SHROOMLIGHT
+  - CRIMSON_DOOR
+  - CRIMSON_HYPHAE
+  - CRIMSON_PRESSURE_PLATE
+  - CRIMSON_FENCE_GATE
+  - WARPED_SIGN
+  - NETHER_BRICK_FENCE
+  - SMOOTH_QUARTZ_SLAB
+wool:
+  difficulty: 1
+  items:
+  - ORANGE_WOOL
+  - LIGHT_BLUE_CARPET
+  - PINK_BED
+  - GREEN_BED
+  - LIME_BED
+  - YELLOW_BANNER
+  - RED_WOOL
+  - YELLOW_BED
+  - CYAN_CARPET
+  - BLUE_WOOL
+  - BLACK_WOOL
+  - MAGENTA_WOOL
+  - LIGHT_GRAY_CARPET
+  - LIGHT_BLUE_BED
+  - YELLOW_WOOL
+  - YELLOW_CARPET
+  - BLUE_BANNER
+  - WHITE_CARPET
+  - LIGHT_GRAY_WOOL
+  - BLACK_CARPET
+  - GRAY_WOOL
+  - PURPLE_BANNER
+  - GRAY_BED
+  - BLUE_BED
+  - LIGHT_GRAY_BANNER
+  - GRAY_CARPET
+passive-mob-drops:
+  difficulty: 1
+  items:
+  - INK_SAC
+  - RABBIT_HIDE
+  - FEATHER
+  - MUTTON
+  - EGG
+  - RABBIT
+  - BEEF
+iron:
+  difficulty: 1
+  items:
+  - HOPPER_MINECART
+  - IRON_SWORD
+  - IRON_NUGGET
+  - CAULDRON
+  - CHAIN
+  - IRON_TRAPDOOR
+  - IRON_AXE
+  - BLAST_FURNACE
+  - IRON_LEGGINGS
+  - IRON_BLOCK
+  - BUCKET
+  - IRON_PICKAXE
+  - FLINT_AND_STEEL
+exotic-wood:
+  difficulty: 3
+  items:
+  - DARK_OAK_PLANKS
+  - DARK_OAK_TRAPDOOR
+  - DARK_OAK_SAPLING
+  - STRIPPED_ACACIA_LOG
+  - ACACIA_DOOR
+  - ACACIA_TRAPDOOR
+  - DARK_OAK_BOAT
+wood:
+  difficulty: 1
+  items:
+  - STRIPPED_SPRUCE_WOOD
+  - STRIPPED_OAK_LOG
+  - OAK_SLAB
+  - SPRUCE_PRESSURE_PLATE
+  - SPRUCE_SLAB
+  - BIRCH_STAIRS
+  - STRIPPED_SPRUCE_LOG
+  - BIRCH_BUTTON
+  - OAK_STAIRS
+  - DARK_OAK_DOOR
+  - BIRCH_DOOR
+  - WOODEN_SWORD
+  - BOWL
+  - CRAFTING_TABLE
+  - WOODEN_HOE
+  - SPRUCE_BUTTON
+  - OAK_SIGN
+  - COMPOSTER
+  - SPRUCE_SAPLING
+  - SPRUCE_WOOD
+  - BIRCH_WOOD
+  - BIRCH_SLAB
+  - SPRUCE_SIGN
+silk-touch:
+  difficulty: 6
+  items:
+  - BRAIN_CORAL_BLOCK
+  - BRAIN_CORAL
+  - SNOW
+  - FIRE_CORAL
+  - DIAMOND_ORE
+  - TUBE_CORAL_BLOCK
+  - BROWN_MUSHROOM_BLOCK
+  - BUBBLE_CORAL_FAN
+  - DEAD_FIRE_CORAL_FAN
+  - LAPIS_ORE
+  - PACKED_ICE
+  - DEAD_BUBBLE_CORAL_BLOCK
+  - DEAD_TUBE_CORAL_FAN
+  - REDSTONE_ORE
+  - DEAD_HORN_CORAL_FAN
+concrete:
+  difficulty: 1
+  items:
+  - LIGHT_BLUE_CONCRETE
+  - BLUE_CONCRETE_POWDER
+  - PINK_CONCRETE_POWDER
+  - BLACK_CONCRETE_POWDER
+  - GRAY_CONCRETE
+  - BROWN_CONCRETE
+plant:
+  difficulty: 1
+  items:
+  - RED_MUSHROOM
+  - BIRCH_LEAVES
+  - TALL_GRASS
+  - LILY_OF_THE_VALLEY
+  - LILAC
+  - WHITE_TULIP
+  - AZURE_BLUET
+  - DRIED_KELP
+  - WHEAT
+  - SUGAR_CANE
+  - DRIED_KELP_BLOCK
+  - RED_TULIP
+  - PINK_TULIP
+  - ROSE_BUSH
+terracotta:
+  difficulty: 1
+  items:
+  - WHITE_TERRACOTTA
+  - LIME_TERRACOTTA
+  - TERRACOTTA
+  - BLACK_TERRACOTTA
+  - MAGENTA_GLAZED_TERRACOTTA
+  - CYAN_TERRACOTTA
+  - LIGHT_GRAY_GLAZED_TERRACOTTA
+mossy:
+  difficulty: 2
+  items:
+  - MOSSY_COBBLESTONE_SLAB
+  - MOSSY_STONE_BRICK_SLAB
+broken:
+  difficulty: 9999
+  items:
+  - TIPPED_ARROW
+super-hard:
+  difficulty: 9
+  items:
+  - TOTEM_OF_UNDYING
+  - BEACON
+exotic-plant:
+  difficulty: 3
+  items:
+  - PUMPKIN
+  - SEA_PICKLE
+  - PUMPKIN_SEEDS
+enchanting:
+  difficulty: 4
+  items:
+  - ENCHANTED_BOOK
+exotic-other:
+  difficulty: 6
+  items:
+  - RED_SAND
+  - BAMBOO
+  - SMOOTH_RED_SANDSTONE_STAIRS
+  - RED_SANDSTONE_WALL
+glass:
+  difficulty: 1
+  items:
+  - LIGHT_BLUE_STAINED_GLASS
+  - GLASS_PANE
+  - YELLOW_STAINED_GLASS
+  - ORANGE_STAINED_GLASS
+  - BLUE_STAINED_GLASS_PANE
+  - GRAY_STAINED_GLASS
+  - CYAN_STAINED_GLASS_PANE
+  - BLUE_STAINED_GLASS
+  - LIGHT_BLUE_STAINED_GLASS_PANE
+netherite-hard:
+  difficulty: 8
+  items:
+  - NETHERITE_HOE
+  - NETHERITE_PICKAXE
+  - NETHERITE_HELMET
+nether-medium:
+  difficulty: 4
+  items:
+  - NETHER_WART
+  - GILDED_BLACKSTONE
+  - NETHER_WART_BLOCK
+  - RED_NETHER_BRICK_STAIRS
+discs:
+  difficulty: 7
+  items:
+  - MUSIC_DISC_11
+  - MUSIC_DISC_PIGSTEP
+snow:
+  difficulty: 4
+  items:
+  - SNOW_BLOCK
+craftable-easy:
+  items:
+  - ARMOR_STAND
+  - STONE_AXE
+  - CROSSBOW
+  - FISHING_ROD
+  - CHISELED_SANDSTONE
+  - FURNACE
+  - FLETCHING_TABLE
+  - LEATHER_HELMET
+  - SANDSTONE
+  - SUSPICIOUS_STEW
+  - LEATHER_BOOTS
+  - SANDSTONE_STAIRS
+  - SUGAR
+  - BREAD
+  - GLASS_BOTTLE
+  - TRAPPED_CHEST
+  - ARROW
+  - FERMENTED_SPIDER_EYE
+  - SMOOTH_SANDSTONE
+  - HAY_BLOCK
+  - BRICK_WALL
+heads:
+  difficulty: 9
+  items:
+  - WITHER_SKELETON_SKULL
+  - PLAYER_HEAD
+  - ZOMBIE_HEAD
+  - SKELETON_SKULL
+gold:
+  difficulty: 2
+  items:
+  - CLOCK
+  - GOLD_BLOCK
+  - GOLDEN_CARROT
+  - GOLDEN_HOE
+fish:
+  difficulty: 1
+  items:
+  - TROPICAL_FISH
+  - COD_BUCKET
+  - COOKED_COD
+coal:
+  difficulty: 1
+  items:
+  - COAL_BLOCK
+end-hard:
+  difficulty: 9
+  items:
+  - GREEN_SHULKER_BOX
+  - SHULKER_SHELL
+  - END_ROD
+  - PURPUR_SLAB
+  - WHITE_SHULKER_BOX
+  - PURPUR_PILLAR
+stone:
+  difficulty: 1
+  items:
+  - POLISHED_GRANITE_STAIRS
+  - ANDESITE_STAIRS
+  - POLISHED_DIORITE
+  - POLISHED_GRANITE_SLAB
+  - STONE_SHOVEL
+  - STONE_BRICKS
+  - SMOOTH_STONE
+  - STONE_PRESSURE_PLATE
+  - POLISHED_ANDESITE_SLAB
+  - STONE_BRICK_STAIRS
+  - STONE
+  - STONE_STAIRS
+  - POLISHED_ANDESITE_STAIRS
+  - STONE_BUTTON
+chainmail:
+  difficulty: 9999
+  items:
+  - CHAINMAIL_BOOTS
+chest-luck:
+  difficulty: 9999
+  items:
+  - GOLDEN_HORSE_ARMOR
+  - IRON_HORSE_ARMOR
+  - DIAMOND_HORSE_ARMOR
+  - NAME_TAG
+bees-easy:
+  difficulty: 7
+  items:
+  - BEE_NEST
+books:
+  difficulty: 2
+  items:
+  - BOOKSHELF
+  - WRITABLE_BOOK
+banner-patterns:
+  difficulty: 9
+  items:
+  - SKULL_BANNER_PATTERN
+  - GLOBE_BANNER_PATTERN
+  - PIGLIN_BANNER_PATTERN
+diamond:
+  difficulty: 3
+  items:
+  - JUKEBOX
+  - DIAMOND_PICKAXE
+  - OBSIDIAN
+  - DIAMOND_SHOVEL
+  - DIAMOND_LEGGINGS
+brewing:
+  difficulty: 4
+  items:
+  - BREWING_STAND
+  - SPLASH_POTION
+craftable-medium:
+  difficulty: 2
+  items:
+  - RABBIT_STEW
+  - DETECTOR_RAIL
+ocean-monument:
+  difficulty: 4
+  items:
+  - PRISMARINE_STAIRS
+  - DARK_PRISMARINE
+  - PRISMARINE_CRYSTALS
+  - DARK_PRISMARINE_STAIRS
+end-medium:
+  difficulty: 7
+  items:
+  - DRAGON_EGG
+dye:
+  difficulty: 1
+  items:
+  - CYAN_DYE
+  - GREEN_DYE
+  - BLUE_DYE
+  - LIME_DYE
+  - YELLOW_DYE
+conduit:
+  difficulty: 9
+  items:
+  - NAUTILUS_SHELL
+mushroom-island:
+  difficulty: 11
+  items:
+  - MYCELIUM
+slime:
+  difficulty: 5
+  items:
+  - STICKY_PISTON
+ground:
+  difficulty: 1
+  items:
+  - FLINT
+  - CLAY_BALL
+jungle:
+  difficulty: 6
+  items:
+  - JUNGLE_FENCE
+  - MELON
+  - COOKIE
+  - JUNGLE_SLAB
+  - JUNGLE_WOOD
+  - JUNGLE_SIGN
+  - JUNGLE_LOG
+  - MELON_SEEDS
+  - JUNGLE_TRAPDOOR
+  - BROWN_DYE
+  - JUNGLE_FENCE_GATE
+mineshaft:
+  difficulty: 5
+  items:
+  - COBWEB
+netherite-easy:
+  difficulty: 5
+  items:
+  - ANCIENT_DEBRIS
+dead-coral:
+  difficulty: 5
+  items:
+  - DEAD_BRAIN_CORAL_BLOCK
+nether-hard:
+  difficulty: 6
+  items:
+  - RESPAWN_ANCHOR
+turtle:
+  difficulty: 9
+  items:
+  - TURTLE_EGG
+lapis:
+  difficulty: 3
+  items:
+  - LAPIS_LAZULI
+redstone:
+  difficulty: 2
+  items:
+  - NOTE_BLOCK
+village:
+  difficulty: 3
+  items:
+  - BELL
+  - CAMPFIRE

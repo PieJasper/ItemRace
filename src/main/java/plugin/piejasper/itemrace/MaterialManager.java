@@ -22,8 +22,9 @@ public class MaterialManager {
     private File categoriesConfigFile;
     private final Map<Integer, List<Material>> materialsByDifficulty = new HashMap<>();
 
-    private final Map<String, Material> materialCategories = new HashMap<>();
-    private final Map<String, Integer> categoryDifficulties = new HashMap<>();
+    private final Map<String, ConfigurationSection> categories = new HashMap<>();
+    private final List<Material> itemsAlreadyCategorized = new ArrayList<>();
+    private final List<String> categoryNames = new ArrayList<>();
 
     public void generateUsableMaterials() {
         Material[] materials = Material.values();
@@ -103,8 +104,13 @@ public class MaterialManager {
             // the overall category name
             ConfigurationSection category = categoriesConfig.getConfigurationSection(key);
             assert category != null;
+
+            categories.put(key, category);
+            categoryNames.add(key);
+
             // difficulty of items in the category
             int difficulty = category.getInt("difficulty", 0);
+
             // items in the category
             List<String> materialStrings = category.getStringList("items");
 
@@ -118,9 +124,14 @@ public class MaterialManager {
                 }
 
                 int recordedDifficulty = highestDifficulties.getOrDefault(material, -1);
+
                 // get highest difficulty for each material
                 if (difficulty > recordedDifficulty) {
                     highestDifficulties.put(material, difficulty);
+                }
+
+                if (!itemsAlreadyCategorized.contains(material)) {
+                    itemsAlreadyCategorized.add(material);
                 }
             }
         }
@@ -135,12 +146,63 @@ public class MaterialManager {
         }
     }
 
+    public Material getUncategorizedItem() {
+        List<Material> uncategorizedItems = usableMaterials;
+        uncategorizedItems.removeAll(itemsAlreadyCategorized);
+        System.out.println(uncategorizedItems.size());
+        return uncategorizedItems.get(getRandomNumber(uncategorizedItems.size()));
+    }
+
     public void writeConfig() {
+        for (String categoryName : categories.keySet()) {
+            categoriesConfig.set(categoryName, categories.get(categoryName));
+        }
+
         try {
             categoriesConfig.save(categoriesConfigFile);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<String> getCategoryNames() {
+        return categoryNames;
+    }
+
+    public ConfigurationSection getCategory(String name) {
+        return categories.getOrDefault(name, null);
+    }
+
+    public void addOrChangeCategory(String categoryName, int difficulty, Material newMaterial) {
+        ConfigurationSection categoryToBeChanged;
+        boolean existedBefore = false;
+
+        if (categories.containsKey(categoryName)) {
+            categoryToBeChanged = categories.get(categoryName);
+            existedBefore = true;
+        } else {
+            categoryToBeChanged = categoriesConfig.createSection(categoryName);
+        }
+
+        if (difficulty > 0) {
+            categoryToBeChanged.set("difficulty", difficulty);
+        }
+
+        if (newMaterial != null) {
+            List<String> alreadyExistingItems = categoryToBeChanged.getStringList("items");
+            if (!alreadyExistingItems.contains(newMaterial.toString())) {
+                alreadyExistingItems.add(newMaterial.toString());
+            }
+            categoryToBeChanged.set("items", alreadyExistingItems);
+            itemsAlreadyCategorized.add(newMaterial);
+        }
+
+        if (!existedBefore) {
+            categoryNames.add(categoryName);
+            categories.put(categoryName, categoryToBeChanged);
+        }
+
+        writeConfig();
     }
 
     private File createConfig(String file, Plugin plugin) {
