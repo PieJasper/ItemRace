@@ -7,8 +7,8 @@ public class GameSettings {
     private boolean racing = false;
     private boolean shared = true;
 
-    private int startingTime = 300;
-    private int maxLives = 3;
+    private int startingTime = 600;
+    private int maxLives = 5;
 
     private int winningPoints = 5;
 
