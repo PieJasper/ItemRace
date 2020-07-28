@@ -1,6 +1,6 @@
 name: ItemRace
 version: 1.0
-main: plugin.zombiegenius.itemrace.ItemRace
+main: plugin.piejasper.itemrace.ItemRace
 api-version: 1.16
 commands:
   itemrace:

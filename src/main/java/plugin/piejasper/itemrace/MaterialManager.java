@@ -86,7 +86,7 @@ public class MaterialManager {
 
     public void setupConfigs(Plugin plugin) {
         categoriesConfigFile = createConfig("categories.yml", plugin);
-        categoriesConfig = null; // fixme
+        categoriesConfig = loadFileConfiguration(categoriesConfigFile);
 
         loadConfigs();
     }
