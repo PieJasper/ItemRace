@@ -45,7 +45,7 @@ public class MaterialManager {
     }
 
     public Material getRandomMaterialExcludingPlayerItems(List<Player> players) {
-        List<Material> possibleItems = new ArrayList<>(usableMaterials);
+        List<ItemStack> excludedItems = new ArrayList<>();
 
         for (Player player : players) {
             PlayerInventory inventory = player.getInventory();
@@ -54,24 +54,23 @@ public class MaterialManager {
                 if (item == null) {
                     continue;
                 }
-                Material itemType = item.getType();
-                possibleItems.remove(itemType);
+                excludedItems.add(item);
             }
         }
 
-        // if players somehow have every item in their inventories, resort to using default list
-        if(possibleItems.isEmpty()) {
-            possibleItems = usableMaterials;
-        }
-
-        return possibleItems.get(getRandomNumber(possibleItems.size()));
+        return getRandomMaterialExcludingItems(excludedItems);
     }
 
     public Material getRandomMaterialExcludingPlayerItems(Player player) {
-        List<Material> possibleItems = new ArrayList<>(usableMaterials);
-
         PlayerInventory inventory = player.getInventory();
         ItemStack[] items = inventory.getStorageContents();
+
+        return getRandomMaterialExcludingItems(Arrays.asList(items));
+    }
+
+    public Material getRandomMaterialExcludingItems(List<ItemStack> items) {
+        List<Material> possibleItems = new ArrayList<>(usableMaterials);
+
         for (ItemStack item : items) {
             if (item == null) {
                 continue;
@@ -84,7 +83,7 @@ public class MaterialManager {
             possibleItems = usableMaterials;
         }
 
-        // if player somehow has every item in their inventory, resort to using default list
+        // if all items are excluded, use any item
         return possibleItems.get(getRandomNumber(possibleItems.size()));
     }
 
