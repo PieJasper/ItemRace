@@ -38,7 +38,7 @@ public class GameManager {
     public GameManager(Plugin plugin, GameSettings settings) {
         materialManager = new MaterialManager();
         materialManager.generateUsableMaterials();
-        materialManager.setupConfigs(plugin);
+        materialManager.setupConfig(plugin);
 
         new BukkitRunnable() {
             @Override

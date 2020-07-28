@@ -22,6 +22,9 @@ public class MaterialManager {
     private File categoriesConfigFile;
     private final Map<Integer, List<Material>> materialsByDifficulty = new HashMap<>();
 
+    private final Map<String, Material> materialCategories = new HashMap<>();
+    private final Map<String, Integer> categoryDifficulties = new HashMap<>();
+
     public void generateUsableMaterials() {
         Material[] materials = Material.values();
 
@@ -84,14 +87,14 @@ public class MaterialManager {
         return possibleItems.get(getRandomNumber(possibleItems.size()));
     }
 
-    public void setupConfigs(Plugin plugin) {
+    public void setupConfig(Plugin plugin) {
         categoriesConfigFile = createConfig("categories.yml", plugin);
         categoriesConfig = loadFileConfiguration(categoriesConfigFile);
 
-        loadConfigs();
+        loadConfig();
     }
 
-    public void loadConfigs() {
+    public void loadConfig() {
         Map<Material, Integer> highestDifficulties = new HashMap<>();
         Set<String> keys = categoriesConfig.getKeys(false);
 
@@ -132,7 +135,7 @@ public class MaterialManager {
         }
     }
 
-    public void writeConfigs() {
+    public void writeConfig() {
         try {
             categoriesConfig.save(categoriesConfigFile);
         } catch (Exception e) {
