@@ -44,7 +44,7 @@ public class MaterialManager {
         return usableMaterials.get(getRandomNumber(usableMaterials.size()));
     }
 
-    public Material getRandomMaterialExcludingPlayerItems(List<Player> players) {
+    public Material getRandomMaterialExcludingPlayerItems(List<Player> players, int round) {
         List<ItemStack> excludedItems = new ArrayList<>();
 
         for (Player player : players) {
@@ -58,18 +58,20 @@ public class MaterialManager {
             }
         }
 
-        return getRandomMaterialExcludingItems(excludedItems);
+        return getRandomMaterialExcludingItems(excludedItems,  round);
     }
 
-    public Material getRandomMaterialExcludingPlayerItems(Player player) {
+    public Material getRandomMaterialExcludingPlayerItems(Player player, int round) {
         PlayerInventory inventory = player.getInventory();
         ItemStack[] items = inventory.getStorageContents();
 
-        return getRandomMaterialExcludingItems(Arrays.asList(items));
+        return getRandomMaterialExcludingItems(Arrays.asList(items), round);
     }
 
-    public Material getRandomMaterialExcludingItems(List<ItemStack> items) {
-        List<Material> possibleItems = new ArrayList<>(usableMaterials);
+    public Material getRandomMaterialExcludingItems(List<ItemStack> items, int round) {
+
+        // todo: make this better
+        List<Material> possibleItems = materialsByDifficulty.get(getRandomNumber(3) + 1);
 
         for (ItemStack item : items) {
             if (item == null) {

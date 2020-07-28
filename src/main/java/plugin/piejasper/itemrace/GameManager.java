@@ -36,6 +36,7 @@ public class GameManager {
     private boolean started = false;
 
     private long time = -1;
+    private int round = 0;
 
     private final GameSettings settings;
 
@@ -146,9 +147,9 @@ public class GameManager {
     public void skip(Player player) {
         Material chosenMaterial;
         if (!settings.isShared()) {
-            chosenMaterial = materialManager.getRandomMaterialExcludingPlayerItems(player);
+            chosenMaterial = materialManager.getRandomMaterialExcludingPlayerItems(player, round);
         } else {
-            chosenMaterial = materialManager.getRandomMaterialExcludingPlayerItems(joinedPlayers);
+            chosenMaterial = materialManager.getRandomMaterialExcludingPlayerItems(joinedPlayers, round);
         }
 
         String chosenItemName = cleanName(chosenMaterial);
@@ -189,6 +190,7 @@ public class GameManager {
     }
 
     public void start() {
+        round = 0;
         started = true;
         activePlayers.clear();
         activePlayers.addAll(joinedPlayers);
@@ -212,14 +214,14 @@ public class GameManager {
         playerItems.clear();
 
         // material common between players excluding all items in their inventories, for when separate is false
-        Material commonMaterial = materialManager.getRandomMaterialExcludingPlayerItems(joinedPlayers);
+        Material commonMaterial = materialManager.getRandomMaterialExcludingPlayerItems(joinedPlayers, round);
         for (Player joinedPlayer : joinedPlayers) {
             Material chosenMaterial;
 
             // set player's item
             if (!settings.isShared()) {
                 // random item excluding all items in the player's inventory
-                chosenMaterial = materialManager.getRandomMaterialExcludingPlayerItems(joinedPlayer);
+                chosenMaterial = materialManager.getRandomMaterialExcludingPlayerItems(joinedPlayer, round);
             } else {
                 chosenMaterial = commonMaterial;
             }
@@ -258,6 +260,7 @@ public class GameManager {
     }
 
     private void startRound() {
+        round++;
         completedPlayers.clear();
         time = 0;
 
