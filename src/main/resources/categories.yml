@@ -373,14 +373,19 @@ banner-patterns:
   - SKULL_BANNER_PATTERN
   - GLOBE_BANNER_PATTERN
   - PIGLIN_BANNER_PATTERN
-diamond:
+diamonds-easy:
   difficulty: 3
   items:
   - JUKEBOX
   - DIAMOND_PICKAXE
   - OBSIDIAN
   - DIAMOND_SHOVEL
-  - DIAMOND_LEGGINGS
+diamonds-hard:
+  difficulty: 4
+  items:
+    - DIAMOND_LEGGINGS
+    - DIAMOND_CHESTPLATE
+    - DIAMOND_BLOCK
 brewing:
   difficulty: 4
   items:

@@ -472,6 +472,9 @@ public class GameManager {
 
     public void checkItemForWin(Player player, ItemStack item) {
         Material targetItem = playerItems.get(player);
+        if (targetItem == null) {
+            return;
+        }
 
         if (item == null) {
             return;
