@@ -1,0 +1,7 @@
+unobtainable:
+  difficulty: 9999
+  items:
+    - COMMAND_BLOCK
+    - COMMAND_BLOCK_MINECART
+    - REPEATING_COMMAND_BLOCK
+    - CHORUS_PLANT

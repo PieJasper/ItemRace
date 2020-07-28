@@ -1,0 +1,9 @@
+name: ItemRace
+version: 1.0
+main: plugin.zombiegenius.itemrace.ItemRace
+api-version: 1.16
+commands:
+  itemrace:
+    description: Use /itemrace help for help
+    usage: Invalid command. Type /itemrace help for subcommands.
+    aliases: ["ir"]
